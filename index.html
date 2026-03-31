@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamali Estates | Cinematic Architecture & Real Estate</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        /* Hide scrollbar for cleaner look if needed */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-sans selection:bg-white selection:text-black">
+
+    <!-- --- NAVIGATION --- -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 bg-transparent py-6">
+        <div class="container mx-auto px-6 lg:px-12 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-white text-black flex items-center justify-center font-bold text-xl tracking-tighter">
+                    K
+                </div>
+                <span class="font-bold text-xl tracking-widest uppercase">Kamali Estates</span>
+            </div>
+
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide uppercase">
+                <a href="#hot-deals" class="hover:text-gray-400 transition-colors">Hot Deals</a>
+                <a href="#properties" class="hover:text-gray-400 transition-colors">Properties</a>
+                <a href="#thoughts" class="hover:text-gray-400 transition-colors">Leave Thoughts</a>
+                
+                <div class="flex items-center gap-4 ml-4 pl-8 border-l border-white/20">
+                    <a href="https://wa.me/250786487234" target="_blank" rel="noreferrer" class="flex items-center gap-2 hover:text-gray-400 transition-colors">
+                        <i data-lucide="message-circle" class="w-[18px] h-[18px]"></i> WhatsApp
+                    </a>
+                    <a href="tel:+250786487234" class="flex items-center gap-2 bg-white text-black px-5 py-2 hover:bg-gray-200 transition-colors">
+                        <i data-lucide="phone" class="w-4 h-4"></i> Call Us
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-white">
+                <i data-lucide="menu" class="w-7 h-7" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Dropdown -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-black border-b border-white/10 flex-col items-center py-6 gap-6">
+            <a href="#hot-deals" class="mobile-link uppercase tracking-widest">Hot Deals</a>
+            <a href="#properties" class="mobile-link uppercase tracking-widest">Properties</a>
+            <a href="#thoughts" class="mobile-link uppercase tracking-widest">Thoughts</a>
+            <a href="https://wa.me/250786487234" target="_blank" rel="noreferrer" class="flex items-center gap-2 uppercase tracking-widest">
+                <i data-lucide="message-circle" class="w-[18px] h-[18px]"></i> WhatsApp
+            </a>
+            <a href="tel:+250786487234" class="flex items-center gap-2 bg-white text-black px-8 py-3 uppercase tracking-widest">
+                <i data-lucide="phone" class="w-[18px] h-[18px]"></i> Call
+            </a>
+        </div>
+    </nav>
+
+    <!-- --- HERO SLIDER (HOT DEALS) --- -->
+    <section id="hot-deals" class="relative h-screen w-full overflow-hidden bg-black">
+        <!-- Slider Container sliding leftward -->
+        <div id="slider-track" class="flex h-full w-full transition-transform duration-1000 ease-[cubic-bezier(0.7,0,0.3,1)]">
+            <!-- Slides injected via JS -->
+        </div>
+
+        <!-- Navigation Dots (Lower Part) -->
+        <div id="slider-dots" class="absolute bottom-12 left-0 w-full z-30 flex justify-center items-center gap-4">
+            <!-- Dots injected via JS -->
+        </div>
+    </section>
+
+    <!-- --- PROPERTIES PORTFOLIO --- -->
+    <section id="properties" class="py-24 px-6 lg:px-12 bg-black">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-white/20 pb-8">
+                <div>
+                    <h2 class="text-sm font-bold uppercase tracking-widest text-gray-400 mb-2">Our Portfolio</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold uppercase tracking-tighter">Discover Properties</h3>
+                </div>
+                
+                <!-- Category Tabs -->
+                <div id="property-tabs" class="flex flex-wrap gap-4 mt-8 md:mt-0">
+                    <!-- Tabs injected via JS -->
+                </div>
+            </div>
+
+            <!-- Property Grid -->
+            <div id="properties-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Properties injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- --- LEAVE YOUR THOUGHTS (CONTACT FORM) --- -->
+    <section id="thoughts" class="py-24 px-6 lg:px-12 bg-[#050505]">
+        <div class="container mx-auto max-w-5xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-sm font-bold uppercase tracking-widest text-gray-400 mb-2">Engage With Us</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-8">Leave Your Thoughts</h3>
+                    <p class="text-gray-400 text-lg font-light leading-relaxed mb-12">
+                        Whether you're looking to buy, sell, rent, or commission a property, our team is ready to assist you. Share your vision with us, and let's make it a reality. We value every thought.
+                    </p>
+                    
+                    <div class="flex flex-col gap-6">
+                        <a href="tel:+250786487234" class="flex items-center gap-4 text-xl hover:text-gray-400 transition-colors">
+                            <div class="w-12 h-12 border border-white/20 flex items-center justify-center">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            +250 786 487 234
+                        </a>
+                        <a href="https://wa.me/250786487234" class="flex items-center gap-4 text-xl hover:text-gray-400 transition-colors">
+                            <div class="w-12 h-12 border border-white/20 flex items-center justify-center">
+                                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                            </div>
+                            +250 786 487 234
+                        </a>
+                        <a href="mailto:inkhub250@gmail.com" class="flex items-center gap-4 text-xl hover:text-gray-400 transition-colors">
+                            <div class="w-12 h-12 border border-white/20 flex items-center justify-center">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </div>
+                            inkhub250@gmail.com
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-[#0a0a0a] p-8 border border-white/10">
+                    <form id="contact-form" class="flex flex-col gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Full Name</label>
+                            <input type="text" class="w-full bg-transparent border-b border-white/20 py-3 text-white focus:outline-none focus:border-white transition-colors" placeholder="John Doe" required />
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Email Address</label>
+                            <input type="email" class="w-full bg-transparent border-b border-white/20 py-3 text-white focus:outline-none focus:border-white transition-colors" placeholder="john@example.com" required />
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Your Thoughts / Inquiry</label>
+                            <textarea rows="4" class="w-full bg-transparent border-b border-white/20 py-3 text-white focus:outline-none focus:border-white transition-colors resize-none" placeholder="I am interested in..." required></textarea>
+                        </div>
+                        <button type="submit" class="mt-4 bg-white text-black py-4 font-bold uppercase tracking-widest hover:bg-gray-200 transition-colors">
+                            Submit Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- FOOTER --- -->
+    <footer class="bg-black py-16 px-6 lg:px-12 border-t border-white/10">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-white text-black flex items-center justify-center font-bold text-2xl tracking-tighter">
+                    K
+                </div>
+                <div>
+                    <span class="block font-bold text-xl tracking-widest uppercase leading-none">Kamali</span>
+                    <span class="block font-light tracking-[0.3em] uppercase text-sm mt-1">Estates</span>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center md:items-start text-gray-400 text-sm gap-2">
+                <p>Direct Channels:</p>
+                <div class="flex gap-4">
+                    <a href="mailto:inkhub250@gmail.com" class="hover:text-white transition-colors">inkhub250@gmail.com</a>
+                    <span>|</span>
+                    <a href="tel:+250786487234" class="hover:text-white transition-colors">+250786487234</a>
+                </div>
+            </div>
+
+            <div class="flex gap-6">
+                <a href="https://instagram.com/nad.visualz" target="_blank" rel="noreferrer" class="w-12 h-12 border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all group">
+                    <i data-lucide="instagram" class="w-5 h-5"></i>
+                    <span class="sr-only">@nad.visualz</span>
+                </a>
+                <a href="https://x.com/iamnad250" target="_blank" rel="noreferrer" class="w-12 h-12 border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                    <i data-lucide="twitter" class="w-5 h-5"></i>
+                    <span class="sr-only">@iamnad250</span>
+                </a>
+                <a href="https://youtube.com/results?search_query=IAM+NAD" target="_blank" rel="noreferrer" class="w-12 h-12 border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                    <i data-lucide="youtube" class="w-5 h-5"></i>
+                    <span class="sr-only">IAM NAD</span>
+                </a>
+            </div>
+
+        </div>
+        
+        <div class="container mx-auto mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest">
+            <p id="copyright-year"></p>
+            <p class="mt-4 md:mt-0">Cinematic Architecture & Real Estate</p>
+        </div>
+    </footer>
+
+    <!-- --- JAVASCRIPT --- -->
+    <script>
+        // --- DATA ---
+        const HOT_DEALS = [
+            {
+                id: 1, title: "The Obsidian Villa", location: "Kigali, Nyarutarama", price: "$1,200,000", tier: "Classic", type: "Selling",
+                image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=2000"
+            },
+            {
+                id: 2, title: "Skyline Penthouse", location: "Kigali, City Center", price: "$650,000", tier: "Medium", type: "Selling",
+                image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2000"
+            },
+            {
+                id: 3, title: "Modern Suburban Home", location: "Kigali, Kicukiro", price: "$250,000", tier: "Regular", type: "Selling",
+                image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2000"
+            }
+        ];
+
+        const PROPERTIES = [
+            {
+                id: 4, title: "Minimalist Townhouse", location: "Kigali, Kimihurura", price: "$3,000 / month", tier: "Classic", type: "Renting", beds: 4, baths: 3, sqft: 2500,
+                image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=800"
+            },
+            {
+                id: 5, title: "Urban Studio Loft", location: "Kigali, Gishushu", price: "$800 / month", tier: "Regular", type: "Renting", beds: 1, baths: 1, sqft: 850,
+                image: "https://images.unsplash.com/photo-1502672260266-1c1e5240980c?auto=format&fit=crop&q=80&w=800"
+            },
+            {
+                id: 6, title: "Commercial Plaza Space", location: "Kigali, Remera", price: "Custom Quote", tier: "Medium", type: "Commissioning", beds: 0, baths: 4, sqft: 5000,
+                image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800"
+            },
+            {
+                id: 7, title: "Lakeview Mansion", location: "Rubavu, Lake Kivu", price: "$850,000", tier: "Classic", type: "Selling", beds: 6, baths: 7, sqft: 8000,
+                image: "https://images.unsplash.com/photo-1512915922686-57c11dde9b6b?auto=format&fit=crop&q=80&w=800"
+            },
+            {
+                id: 8, title: "Executive Apartment", location: "Kigali, Kagugu", price: "$1,500 / month", tier: "Medium", type: "Renting", beds: 3, baths: 2, sqft: 1600,
+                image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=800"
+            },
+            {
+                id: 9, title: "Boutique Hotel Development", location: "Musanze", price: "Custom Quote", tier: "Classic", type: "Commissioning", beds: 20, baths: 22, sqft: 15000,
+                image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&q=80&w=800"
+            }
+        ];
+
+        // --- STATE & INITIALIZATION ---
+        let currentSlide = 0;
+        let activeTab = 'All';
+        const TABS = ['All', 'Selling', 'Renting', 'Commissioning'];
+        
+        document.getElementById('copyright-year').innerHTML = `&copy; ${new Date().getFullYear()} Kamali Estates. All Rights Reserved.`;
+
+        // --- SLIDER LOGIC ---
+        const sliderTrack = document.getElementById('slider-track');
+        const sliderDots = document.getElementById('slider-dots');
+
+        function renderSlider() {
+            sliderTrack.innerHTML = HOT_DEALS.map((deal, index) => `
+                <div class="h-full w-full flex-shrink-0 relative">
+                    <div class="absolute inset-0 bg-black/40 z-10"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10"></div>
+                    <img src="${deal.image}" alt="${deal.title}" class="slide-img h-full w-full object-cover scale-105" style="transition: transform 10s ease-out; transform: ${index === 0 ? 'scale(1)' : 'scale(1.1)'}" />
+                    
+                    <div class="absolute inset-0 z-20 flex flex-col justify-end pb-32 px-6 lg:px-24">
+                        <div class="slide-text max-w-4xl animate-fade-in-up" style="animation-delay: ${index === 0 ? '0.5s' : '0s'}">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="bg-white text-black text-xs font-bold uppercase tracking-widest px-3 py-1">Hot Deal</span>
+                                <span class="border border-white/50 text-white text-xs font-bold uppercase tracking-widest px-3 py-1 backdrop-blur-sm">${deal.tier} Tier</span>
+                            </div>
+                            <h1 class="text-5xl lg:text-8xl font-bold uppercase tracking-tighter leading-none mb-4">${deal.title}</h1>
+                            <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 text-lg lg:text-2xl font-light text-gray-300">
+                                <span class="flex items-center gap-2"><i data-lucide="map-pin" class="w-6 h-6"></i> ${deal.location}</span>
+                                <span class="hidden md:block w-2 h-2 bg-white rounded-full"></span>
+                                <span class="font-medium text-white">${deal.price}</span>
+                            </div>
+                            <div class="mt-8 flex gap-4">
+                                <a href="https://wa.me/250786487234" target="_blank" class="bg-white text-black px-8 py-4 font-bold uppercase tracking-widest hover:bg-gray-200 transition-colors">
+                                    Inquire Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            sliderDots.innerHTML = HOT_DEALS.map((_, idx) => `
+                <button onclick="goToSlide(${idx})" class="slider-dot transition-all duration-500 ease-in-out ${idx === 0 ? 'w-16 h-1 bg-white' : 'w-4 h-1 bg-white/30 hover:bg-white/60'}" aria-label="Go to slide ${idx + 1}"></button>
+            `).join('');
+        }
+
+        function updateSlider() {
+            sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update dots
+            const dots = document.querySelectorAll('.slider-dot');
+            dots.forEach((dot, idx) => {
+                dot.className = `slider-dot transition-all duration-500 ease-in-out ${idx === currentSlide ? 'w-16 h-1 bg-white' : 'w-4 h-1 bg-white/30 hover:bg-white/60'}`;
+            });
+
+            // Update scale & animations
+            document.querySelectorAll('.slide-img').forEach((img, idx) => {
+                img.style.transform = idx === currentSlide ? 'scale(1)' : 'scale(1.1)';
+            });
+            document.querySelectorAll('.slide-text').forEach((text, idx) => {
+                if (idx === currentSlide) {
+                    text.style.animation = 'none';
+                    text.offsetHeight; /* trigger reflow */
+                    text.style.animation = null;
+                    text.style.animationDelay = '0.5s';
+                }
+            });
+        }
+
+        window.goToSlide = function(index) {
+            currentSlide = index;
+            updateSlider();
+        };
+
+        setInterval(() => {
+            currentSlide = (currentSlide === HOT_DEALS.length - 1) ? 0 : currentSlide + 1;
+            updateSlider();
+        }, 6000);
+
+        // --- PROPERTIES TABS & GRID LOGIC ---
+        const tabsContainer = document.getElementById('property-tabs');
+        const propertiesGrid = document.getElementById('properties-grid');
+
+        function renderTabs() {
+            tabsContainer.innerHTML = TABS.map(tab => `
+                <button onclick="setActiveTab('${tab}')" class="px-6 py-2 border text-sm uppercase tracking-widest transition-all ${activeTab === tab ? 'bg-white text-black border-white' : 'border-white/20 text-white hover:border-white/60'}">
+                    ${tab}
+                </button>
+            `).join('');
+        }
+
+        function renderProperties() {
+            const filtered = activeTab === 'All' ? PROPERTIES : PROPERTIES.filter(p => p.type === activeTab);
+            
+            propertiesGrid.innerHTML = filtered.map(property => {
+                let statsHtml = '';
+                if (property.beds !== undefined) {
+                    statsHtml = `<div class="flex items-center gap-6 border-t border-white/10 pt-4 mb-6 text-sm text-gray-300">
+                        ${property.beds > 0 ? `<span class="flex items-center gap-2"><i data-lucide="bed-double" class="w-4 h-4"></i> ${property.beds}</span>` : ''}
+                        ${property.baths > 0 ? `<span class="flex items-center gap-2"><i data-lucide="bath" class="w-4 h-4"></i> ${property.baths}</span>` : ''}
+                        ${property.sqft > 0 ? `<span class="flex items-center gap-2"><i data-lucide="maximize" class="w-4 h-4"></i> ${property.sqft} sqft</span>` : ''}
+                    </div>`;
+                }
+
+                return `
+                    <div class="group relative border border-white/10 hover:border-white/30 transition-colors bg-[#0a0a0a]">
+                        <div class="relative h-80 overflow-hidden">
+                            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10"></div>
+                            <img src="${property.image}" alt="${property.title}" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out" />
+                            <div class="absolute top-4 left-4 z-20 flex flex-col gap-2">
+                                <span class="bg-white text-black text-xs font-bold uppercase tracking-widest px-3 py-1 w-fit">
+                                    ${property.type}
+                                </span>
+                            </div>
+                            <div class="absolute top-4 right-4 z-20">
+                                <span class="bg-black/80 backdrop-blur text-white border border-white/20 text-xs font-bold uppercase tracking-widest px-3 py-1">
+                                    ${property.tier}
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6 flex flex-col h-[calc(100%-20rem)]">
+                            <h4 class="text-xl font-bold uppercase tracking-tight mb-2">${property.title}</h4>
+                            <p class="text-gray-400 text-sm flex items-center gap-2 mb-6">
+                                <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> ${property.location}
+                            </p>
+                            
+                            ${statsHtml}
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4">
+                                <span class="text-xl font-medium">${property.price}</span>
+                                <a href="https://wa.me/250786487234" target="_blank" class="text-sm font-bold uppercase tracking-widest flex items-center gap-1 hover:text-gray-400 transition-colors">
+                                    Details <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            // Re-initialize icons for newly added DOM elements
+            lucide.createIcons();
+        }
+
+        window.setActiveTab = function(tab) {
+            activeTab = tab;
+            renderTabs();
+            renderProperties();
+        };
+
+        // --- NAVIGATION & SCROLL LOGIC ---
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-black/95', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/10');
+                navbar.classList.remove('bg-transparent', 'py-6');
+            } else {
+                navbar.classList.add('bg-transparent', 'py-6');
+                navbar.classList.remove('bg-black/95', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/10');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        let mobileMenuOpen = false;
+
+        function toggleMenu() {
+            mobileMenuOpen = !mobileMenuOpen;
+            if (mobileMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                menuIcon.setAttribute('data-lucide', 'x');
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                menuIcon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons(); // Refresh the icon
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        
+        // Close menu on link click
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if(mobileMenuOpen) toggleMenu();
+            });
+        });
+
+        // Prevent Default on form
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // In a real scenario, handle form submission here
+            alert("Thanks for your thoughts! This form is currently in demo mode.");
+            e.target.reset();
+        });
+
+        // --- INITIAL RUN ---
+        renderSlider();
+        renderTabs();
+        renderProperties();
+        lucide.createIcons();
+    </script>
+</body>
+</html>
